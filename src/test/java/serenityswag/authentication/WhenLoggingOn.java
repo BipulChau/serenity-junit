@@ -27,7 +27,7 @@ public class WhenLoggingOn  {
     @Test
     public void usersCanLogOnViaTheHomePage(){
 
-        login.asAStandardUser();
+        login.usingCredentials("standard_user", "secret_sauce");
         //should see product catalog
 
         assertThat(inventoryPage.getHeading()).isEqualToIgnoringCase("Products");
