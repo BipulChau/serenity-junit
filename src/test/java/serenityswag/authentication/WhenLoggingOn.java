@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import serenityswag.inventory.InventoryPage;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static serenityswag.authentication.User.STANDARD_USER;
 
 @RunWith(SerenityRunner.class)
 public class WhenLoggingOn  {
@@ -27,7 +28,7 @@ public class WhenLoggingOn  {
     @Test
     public void usersCanLogOnViaTheHomePage(){
 
-        login.usingCredentials("standard_user", "secret_sauce");
+        login.as(STANDARD_USER);
         //should see product catalog
 
         assertThat(inventoryPage.getHeading()).isEqualToIgnoringCase("Products");
