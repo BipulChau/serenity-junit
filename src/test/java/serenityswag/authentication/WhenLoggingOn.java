@@ -22,13 +22,13 @@ public class WhenLoggingOn extends UIInteractionSteps {
 
         //Login as a standard user
 
-        find("[data-test='username']").sendKeys("standard_user");
-        find("[data-test='password']").sendKeys("secret_sauce");
-        find("[data-test='login-button']").click();
+        $("[data-test='username']").sendKeys("standard_user");
+        $("[data-test='password']").sendKeys("secret_sauce");
+        $("[data-test='login-button']").click();
 
         //should see product catalog
 
-        assertThat(find(".title").getText()).isEqualToIgnoringCase("Products");
+        assertThat($(".title").getText()).isEqualToIgnoringCase("Products");
 
     }
 
