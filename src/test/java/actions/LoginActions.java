@@ -13,10 +13,10 @@ public class LoginActions extends UIInteractionSteps {
         //Login as a standard user
 
         //$("[data-test='username']").sendKeys(user.getUsername());
-        find(By.id("user-name")).sendKeys(user.getUsername());
+        $("#user-name").sendKeys(user.getUsername());
         //$("[data-test='password']").sendKeys(user.getPassword());
-        find(By.id("password")).sendKeys(user.getPassword());
+        $("#password").sendKeys(user.getPassword());
         //$("[data-test='login-button']").click();
-        find(By.id("login-button")).click();
+        $("#login-button").click();
     }
 }
