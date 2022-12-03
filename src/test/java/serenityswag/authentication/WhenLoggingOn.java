@@ -1,6 +1,7 @@
 package serenityswag.authentication;
 
 import actions.LoginActions;
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.steps.UIInteractionSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
@@ -31,7 +32,9 @@ public class WhenLoggingOn  {
         login.as(STANDARD_USER);
         //should see product catalog
 
-        assertThat(inventoryPage.getHeading()).isEqualToIgnoringCase("Products");
+        Serenity.reportThat("The inventory page should be displayed with the correct title",
+                () -> assertThat(inventoryPage.getHeading()).isEqualToIgnoringCase("Products")
+                );
 
     }
 
