@@ -9,7 +9,7 @@ import java.util.List;
 public class ProductListPageObject extends PageObject {
 
     public List<String> titles() {
-        return findAll(By.className("inventory_item_name")).textContents();
+        return findAll(".inventory_item_name").textContents();
 
 
     }
