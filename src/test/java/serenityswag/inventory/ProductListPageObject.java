@@ -13,4 +13,8 @@ public class ProductListPageObject extends PageObject {
 
 
     }
+
+    public void openProductDetailsFor(String itemName) {
+        find(By.linkText(itemName)).click();
+    }
 }
