@@ -10,6 +10,6 @@ public class ProductDetailsPageObject extends PageObject {
     }
 
     public WebElementState productImageWithAltValueOf(String firstItemName) {
-        return find(By.cssSelector(".inventory_details_container img[alt='" +firstItemName + "']"));
+        return $(".inventory_details_container img[alt='" +firstItemName + "']");
     }
 }
