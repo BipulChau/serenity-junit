@@ -36,6 +36,15 @@ public class WhenViewingHighlightedProducts {
     }
 
     @Test
+    public void highligtedProductsShouldDisplayTheCorrespondingImages(){
+        login.as(User.STANDARD_USER);
+        List<String> productsOnDisplay = productList.titles();
+        productsOnDisplay.forEach(
+                productName -> assertThat(productList.imageTextForProduct(productName)).isEqualTo(productName)
+        );
+    }
+
+    @Test
     public void shouldDisplayCorrectProductDetailsPage(){
        login.as(User.STANDARD_USER);
 

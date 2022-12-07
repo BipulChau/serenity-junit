@@ -17,4 +17,8 @@ public class ProductListPageObject extends PageObject {
     public void openProductDetailsFor(String itemName) {
         find(By.linkText(itemName)).click();
     }
+
+    public String imageTextForProduct(String productName) {
+        return find(By.xpath("//div[@class='inventory_item'][contains(.,'"+productName+"')]//img")).getAttribute("alt");
+    }
 }
