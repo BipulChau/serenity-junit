@@ -4,6 +4,7 @@ import actions.LoginActions;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
+import org.assertj.core.api.SoftAssertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -39,9 +40,12 @@ public class WhenViewingHighlightedProducts {
     public void highligtedProductsShouldDisplayTheCorrespondingImages(){
         login.as(User.STANDARD_USER);
         List<String> productsOnDisplay = productList.titles();
+
+        SoftAssertions softly = new SoftAssertions();
         productsOnDisplay.forEach(
-                productName -> assertThat(productList.imageTextForProduct(productName)).isEqualTo(productName)
+                productName -> softly.assertThat(productList.imageTextForProduct(productName)).isEqualTo(productName)
         );
+        softly.assertAll();
     }
 
     @Test
